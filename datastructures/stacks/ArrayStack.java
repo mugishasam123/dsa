@@ -76,18 +76,18 @@ public class ArrayStack<Item> implements Iterable<Item> {
 
         public LinkedIterator() {
 
-            r = n - 1;
+            r = n;
         }
 
         public boolean hasNext() {
-            return r >= 0;
+            return r > 0;
         }
 
         public Item next() {
             if (!hasNext())
                 throw new NoSuchElementException("there is no next element");
-
-            return arr[r--];
+   
+            return arr[--r];
         }
 
     }
@@ -100,7 +100,7 @@ public class ArrayStack<Item> implements Iterable<Item> {
         stack.push(2);
         stack.push(3);
         System.out.println("size" + stack.size());
-        System.out.println("hasnext" + stack.iterator().next());
+        System.out.println("next" + stack.iterator().next());
         System.out.println("after pus" + stack.toString());
         System.out.println("peek" + stack.peek());
         System.out.println("after peek" + stack.toString());
