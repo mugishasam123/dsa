@@ -11,14 +11,18 @@ public class ShuffleSort<Item> {
             arr[i] = arr[random];
             arr[random] = swap;
         }
+
+        for (int i = 0; i < arr.length; i++) {
+           System.out.println(arr[i]);
+        }
        
         return arr.toString();
     }
 
     public static void main(String[] args) {
-        ShuffleSort<Integer> shuffle = new ShuffleSort<>();
+        ShuffleSort<String> shuffle = new ShuffleSort<>();
     
-    Integer[] arr = {1,2,3,4,5,6,7,8,9};
+    String[] arr = {"a","b","c","d"};
     System.out.println(shuffle.sort(arr));
     }
 }
