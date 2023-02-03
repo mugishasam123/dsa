@@ -1,36 +1,29 @@
+import java.util.Arrays;
 
 public class SelectionSort {
 
-    public void sort(int[] a) {
+    static void sort(int[] arr) {
 
-        int n = a.length;
+        for (int i = 0; i < arr.length; i++) {
+            int lowestNUmber = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[lowestNUmber])
+                    lowestNUmber = j;
+            }
 
-        for (int i = 0; i < n - 1; i++) {
+            if (lowestNUmber != i) {
+                int temp = arr[lowestNUmber];
+                arr[lowestNUmber] = arr[i];
+                arr[i] = temp;
 
-            int min = i;
-            for (int j = i + 1; j < n; j++)
-                if (a[j] < a[min])
-                    min = j;
-
-            int temp = a[min];
-            a[min] = a[i];
-            a[i] = temp;
-
+            }
         }
-        
-       
-    }
-    public void print(int [] a) {
-            
-        for(int i=0;i<a.length;i++)
-            System.out.print(a[i]+" ");
+
+        System.out.println(Arrays.toString(arr));
     }
 
-
-    public static void main(String[] args) {
-        SelectionSort sortAlgo = new SelectionSort();
-        int [] arr = {3,9,12,1,8,43,87,0};
-       sortAlgo.sort(arr);
-       sortAlgo.print(arr);
+    public static void main(String [] args){
+        int [] arr = {1,4,7,9,3};
+        SelectionSort.sort(arr);
     }
 }
